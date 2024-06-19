@@ -1,20 +1,31 @@
-import React from "react";
+import React, { useState } from "react"; // Import useState
 import Navbar from "../../components/Navbar/Navbar";
 import { Link } from "react-router-dom";
 import Passwordinput from "../../components/Input/Passwordinput";
+import { validateEmail } from "../../utils/helper";
 
 const Login = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState(null);
+  const [email, setEmail] = useState(""); // Corrected from userState to useState
+  const [password, setPassword] = useState(""); // Corrected from userState to useState
+  const [error, setError] = useState(null); // Corrected from userState to useState
 
-  const handleLogin = async (e) =>{
+  const handleLogin = async (e) => {
     e.preventDefault();
+    // Add logic for login here
 
-    if(!validateEmail(email)){
+    if (!validateEmail(email)) {
       setError("Please enter a valid email address.");
       return;
     }
+
+    if(!password){
+      setError("Please enter the password");
+      return;
+    }
+
+    setError("");
+
+    // Login API Call
   };
 
   return (
@@ -37,6 +48,7 @@ const Login = () => {
             <Passwordinput
               value={password}
               onChange={(e) => setPassword(e.target.value)}
+              placeholder="Password" // Explicitly passing placeholder
             />
 
             {error && <p className="text-red-500 text-xs pb-1">{error}</p>}
@@ -46,7 +58,7 @@ const Login = () => {
             </button>
 
             <p className="text-sm text-center mt-4">
-              Not registered yet ?{" "}
+              Not registered yet?{" "}
               <Link to="/signUp" className="font-medium text-primary underline">
                 Create an account
               </Link>
