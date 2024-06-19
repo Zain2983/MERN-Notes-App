@@ -1,15 +1,21 @@
 import React from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import { Link } from "react-router-dom";
+import Passwordinput from "../../components/Input/Passwordinput";
 
 const Login = () => {
-  const [email, setEmail] = userState("");
-  const [password, setPassword] = userState("");
-  const [error, setError] = userState(null);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState(null);
 
   const handleLogin = async (e) =>{
     e.preventDefault();
-  }
+
+    if(!validateEmail(email)){
+      setError("Please enter a valid email address.");
+      return;
+    }
+  };
 
   return (
     <>
@@ -32,6 +38,8 @@ const Login = () => {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             />
+
+            {error && <p className="text-red-500 text-xs pb-1">{error}</p>}
 
             <button type="submit" className="btn-primary">
               Login
