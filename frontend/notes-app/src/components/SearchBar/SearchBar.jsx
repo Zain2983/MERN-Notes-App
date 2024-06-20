@@ -10,9 +10,9 @@ const SearchBar = ({ value, onChange, handleSearch, onClearSearch }) => {
         placeholder="Search Notes"
         className="w-full text-xs bg-transparent py-[11px] outline-none"
         value={value}
-        onChange={onchange}
+        onChange={onChange}
       />
-
+  
       {value && (
         <IoMdClose
           className="text-xl text-slate-500 cursor-pointer hover:text-black mr-3 "
