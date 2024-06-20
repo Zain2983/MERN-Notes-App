@@ -5,9 +5,9 @@ import Passwordinput from "../../components/Input/Passwordinput";
 import { validateEmail } from "../../utils/helper";
 
 const Login = () => {
-  const [email, setEmail] = useState(""); // Corrected from userState to useState
-  const [password, setPassword] = useState(""); // Corrected from userState to useState
-  const [error, setError] = useState(null); // Corrected from userState to useState
+  const [email, setEmail] = useState(""); 
+  const [password, setPassword] = useState(""); 
+  const [error, setError] = useState(null); 
 
   const handleLogin = async (e) => {
     e.preventDefault();
