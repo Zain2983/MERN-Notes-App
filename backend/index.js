@@ -27,3 +27,8 @@ app.get("/", (req, res) => {
 app.listen(8000);
 
 module.exports = app;
+
+
+
+// https://www.youtube.com/watch?v=Rgvec9UA2_I
+// 1:13:57
