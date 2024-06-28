@@ -146,7 +146,7 @@ app.post("/add-note", authenticateToken, async (req, res) => {
   }
 });
 
-app.listen(8000);
+app.listen(process.env.PORT,()=>{console.log("Server is listening on port:" , process.env.PORT)});
 
 module.exports = app;
 
